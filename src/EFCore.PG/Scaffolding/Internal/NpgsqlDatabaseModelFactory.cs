@@ -201,7 +201,7 @@ FROM pg_class AS cls
 JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
 LEFT OUTER JOIN pg_description AS des ON des.objoid = cls.oid AND des.objsubid=0
 WHERE
-  cls.relkind IN ('r', 'v', 'm', 'f') AND
+  cls.relkind IN ('r', 'v', 'm', 'f','p') AND 
   ns.nspname NOT IN ({internalSchemas}) AND
   cls.relname <> '{HistoryRepository.DefaultTableName}' AND
   -- Exclude tables which are members of PG extensions
